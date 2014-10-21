@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/srikanthgandupalli/AndroidStudioProjects/MobileAssistatnt/app/build/intermediates/pre-dexed/debug/backend-endpoints-android-2186a75fc45e99b75287521f9e8527c753fefb2c.jar"
+        jar="/Users/srikanthgandupalli/AndroidStudioProjects/MobileAssistatnt/backend/build/libs/backend-endpoints-android.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="38d16fce80629b4c6c536bc0e333bc470bf5887a"/>
+    <item
+        dex="/Users/srikanthgandupalli/AndroidStudioProjects/MobileAssistatnt/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9-a134b9fb83399375ab87e384e6384731671e8c98.jar"
+        jar="/Users/srikanthgandupalli/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf"/>
+    <item
+        dex="/Users/srikanthgandupalli/AndroidStudioProjects/MobileAssistatnt/app/build/intermediates/pre-dexed/debug/google-oauth-client-1.18.0-rc-fd6ae78b3ae3d07d250ac90efdfd3cd64953c6e4.jar"
+        jar="/Users/srikanthgandupalli/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.18.0-rc/30281a66559f60a491748974ac17cec3483b873/google-oauth-client-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="030281a66559f60a491748974ac17cec3483b873"/>
+    <item
+        dex="/Users/srikanthgandupalli/AndroidStudioProjects/MobileAssistatnt/app/build/intermediates/pre-dexed/debug/google-api-client-1.18.0-rc-7b2a33d205714c71c817b880e8990a389cd3d743.jar"
+        jar="/Users/srikanthgandupalli/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.18.0-rc/45b0d00b78197d8a3047751443c09538117d188b/google-api-client-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="45b0d00b78197d8a3047751443c09538117d188b"/>
+    <item
+        dex="/Users/srikanthgandupalli/AndroidStudioProjects/MobileAssistatnt/app/build/intermediates/pre-dexed/debug/google-http-client-1.18.0-rc-c3f027d00cafec314bab520191b23041d39c9b0a.jar"
+        jar="/Users/srikanthgandupalli/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.18.0-rc/880ad30d2b249a7591c195c2392646f1b146c139/google-http-client-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="880ad30d2b249a7591c195c2392646f1b146c139"/>
+    <item
+        dex="/Users/srikanthgandupalli/AndroidStudioProjects/MobileAssistatnt/app/build/intermediates/pre-dexed/debug/google-http-client-android-1.18.0-rc-4780cd49f6f32d9d803d7b4591ad28affbf68c49.jar"
+        jar="/Users/srikanthgandupalli/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.18.0-rc/cc519375a59b88327d65b79172798e7e6417bc78/google-http-client-android-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="cc519375a59b88327d65b79172798e7e6417bc78"/>
+    <item
+        dex="/Users/srikanthgandupalli/AndroidStudioProjects/MobileAssistatnt/app/build/intermediates/pre-dexed/debug/google-api-client-android-1.18.0-rc-4fd82f381687810ae12c4715f805a8d2ebd75c8c.jar"
+        jar="/Users/srikanthgandupalli/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.18.0-rc/5a61d590275464895d783fb1612418964e20162e/google-api-client-android-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="5a61d590275464895d783fb1612418964e20162e"/>
+
+</pre-dex-items>
