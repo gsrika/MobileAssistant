@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"koCc_mmAOJe4d9CoedmJUnZeEcg/PuRH3S5wXnKGL_OEGv4BFKFTSpo\"",
+ "etag": "\"9mnLCPwbyZOHH18t8ExzO2gqgTk/6T54LXfeUYqkx6vHw8NPZJCfA_U\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -13,8 +13,8 @@
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
  },
  "protocol": "rpc",
- "rootUrl": "https://myApplicationId.appspot.com/_ah/api/",
- "rpcUrl": "https://myApplicationId.appspot.com/_ah/api/rpc",
+ "rootUrl": "https://usc-course-finder.appspot.com/_ah/api/",
+ "rpcUrl": "https://usc-course-finder.appspot.com/_ah/api/rpc",
  "rpcPath": "/_ah/api/rpc",
  "parameters": {
   "alt": {
@@ -71,6 +71,66 @@
   }
  },
  "schemas": {
+  "Course": {
+   "id": "Course",
+   "type": "object",
+   "properties": {
+    "ccode": {
+     "type": "string"
+    },
+    "cdept": {
+     "type": "string"
+    },
+    "cname": {
+     "type": "string"
+    },
+    "cprefix": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    }
+   }
+  },
+  "CourseCollection": {
+   "id": "CourseCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Course"
+     }
+    }
+   }
+  },
+  "CourseUserMaessage": {
+   "id": "CourseUserMaessage",
+   "type": "object",
+   "properties": {
+    "courseId": {
+     "type": "string"
+    },
+    "userId": {
+     "type": "string"
+    }
+   }
+  },
+  "CourseUserMap": {
+   "id": "CourseUserMap",
+   "type": "object",
+   "properties": {
+    "courseid": {
+     "type": "string"
+    },
+    "users": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
   "MyBean": {
    "id": "MyBean",
    "type": "object",
@@ -79,9 +139,141 @@
      "type": "string"
     }
    }
+  },
+  "User": {
+   "id": "User",
+   "type": "object",
+   "properties": {
+    "firstName": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "lastName": {
+     "type": "string"
+    },
+    "picUrl": {
+     "type": "string"
+    },
+    "pofileUrl": {
+     "type": "string"
+    }
+   }
+  },
+  "UserMessage": {
+   "id": "UserMessage",
+   "type": "object",
+   "properties": {
+    "userId": {
+     "type": "string"
+    }
+   }
   }
  },
  "methods": {
+  "myApi.createCourse": {
+   "id": "myApi.createCourse",
+   "parameters": {
+    "resource": {
+     "$ref": "Course"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "Course"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "myApi.createCourseUserMap": {
+   "id": "myApi.createCourseUserMap",
+   "parameters": {
+    "resource": {
+     "$ref": "CourseUserMap"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "CourseUserMap"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "myApi.createUser": {
+   "id": "myApi.createUser",
+   "parameters": {
+    "resource": {
+     "$ref": "User"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "User"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "myApi.getCourse": {
+   "id": "myApi.getCourse",
+   "parameters": {
+    "resource": {
+     "$ref": "Course"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "CourseCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "myApi.getCourseUserMap": {
+   "id": "myApi.getCourseUserMap",
+   "parameters": {
+    "resource": {
+     "$ref": "CourseUserMaessage"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "CourseUserMap"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "myApi.getUser": {
+   "id": "myApi.getUser",
+   "parameters": {
+    "resource": {
+     "$ref": "UserMessage"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "User"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
   "myApi.sayHi": {
    "id": "myApi.sayHi",
    "parameters": {
@@ -95,6 +287,23 @@
    ],
    "returns": {
     "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "myApi.updateCourseUserMap": {
+   "id": "myApi.updateCourseUserMap",
+   "parameters": {
+    "resource": {
+     "$ref": "CourseUserMaessage"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "CourseUserMap"
    },
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"

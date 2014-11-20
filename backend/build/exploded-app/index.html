@@ -70,9 +70,11 @@
     function enableClick() {
       document.getElementById('helloButton').onclick = function() {
         var name = document.getElementById('nameInput').value;
-        gapi.client.myApi.sayHi({'name': name}).execute(
+        gapi.client.myApi.getUser({'userId': '12'}).execute(
           function(response) {
-            var outputAlertDiv = document.getElementById('outputAlert');
+            document.write("FName : "+response.firstName);
+
+            /*var outputAlertDiv = document.getElementById('outputAlert');
             outputAlertDiv.style.visibility = 'visible';
 
             if (!response.error) {
@@ -82,7 +84,7 @@
             else if (response.error) {
               outputAlertDiv.className = 'alert alert-danger';
               outputAlertDiv.innerHTML = '<b>Error Code: </b>' + response.error.code + ' [' + response.error.message + ']';
-            }
+            }*/
           }
         );
         return false;
@@ -99,11 +101,17 @@
       gapi.client.load(apiName, apiVersion, callback, apiRoot);
     }
 </script>
+
+
 <!--
  Load the Google APIs Client Library for JavaScript
  More info here : https://developers.google.com/api-client-library/javascript/reference/referencedocs
 -->
 
-<script src="https://apis.google.com/js/client.js?onload=init"></script>
+
+
+
+
+<a href="/test3.html">Test Link</a>
 </body>
 </html>
