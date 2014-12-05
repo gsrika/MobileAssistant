@@ -17,10 +17,28 @@ public class User {
     private String firstName;
     @Index
     private String lastName;
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
+
+    public void setPublicProfileUrl(String publicProfileUrl) {
+        this.publicProfileUrl = publicProfileUrl;
+    }
+
+    public String getPictureUrl() {
+
+        return pictureUrl;
+    }
+
+    public String getPublicProfileUrl() {
+        return publicProfileUrl;
+    }
+
     @Index
-    private String picUrl;
+    private String pictureUrl;
     @Index
-    private String pofileUrl;
+    private String publicProfileUrl ;
 
 
     //default private is required for ? (Try to find out )
@@ -28,12 +46,12 @@ public class User {
 
     }
 
-    public User(String id, String firstName, String lastName, String picUrl, String pofileUrl) {
+    public User(String id, String firstName, String lastName, String pictureUrl, String publicProfileUrl) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.picUrl = picUrl;
-        this.pofileUrl = pofileUrl;
+        this.pictureUrl = pictureUrl;
+        this.publicProfileUrl   = publicProfileUrl;
     }
 
     public void setId(String id) {
@@ -49,13 +67,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setPicUrl(String picUrl) {
-        this.picUrl = picUrl;
-    }
 
-    public void setPofileUrl(String pofileUrl) {
-        this.pofileUrl = pofileUrl;
-    }
 
     public String getId() {
 
@@ -70,11 +82,4 @@ public class User {
         return lastName;
     }
 
-    public String getPicUrl() {
-        return picUrl;
-    }
-
-    public String getPofileUrl() {
-        return pofileUrl;
-    }
 }

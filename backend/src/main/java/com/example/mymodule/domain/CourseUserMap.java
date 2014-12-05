@@ -4,6 +4,7 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,28 +14,30 @@ import java.util.List;
 public class CourseUserMap {
 
 
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
+    }
+
+    public String getCourseId() {
+
+        return courseId;
+    }
 
     @Id
-    private String courseid;
-    private List<String> users;
+    private String courseId;
+    private List<String> users = new ArrayList<String>();
 
     private CourseUserMap () {
 
     }
 
     public CourseUserMap(String courseid, List<String> users) {
-        this.courseid = courseid;
+        this.courseId = courseid;
         this.users = users;
     }
 
-    public String getCourseid() {
 
-        return courseid;
-    }
 
-    public void setCourseid(String courseid) {
-        this.courseid = courseid;
-    }
 
     public List<String> getUsers() {
         return users;

@@ -57,7 +57,9 @@ public class MyEndpoint {
     // TODO 2 Pass the User parameter
     public List<Course> getCourseList(Course course)  {
 
-        List<Course> list = ofy().load().type(Course.class).filter("ccode", "548").list();
+        String courseId = course.getId();
+
+        List<Course> list = ofy().load().type(Course.class).filter("id", courseId).list();
 
         for(Course c : list) {
             System.out.println(c.toString());
@@ -67,7 +69,9 @@ public class MyEndpoint {
 
     @ApiMethod(name = "createUser", path = "createUser", httpMethod = ApiMethod.HttpMethod.POST)
     public User createUser(User user) {
+        System.out.println("creating user " + user.getPictureUrl());
         ofy().save().entity(user).now();
+
         return user;
 
     }
@@ -100,12 +104,48 @@ public class MyEndpoint {
             throw new UnauthorizedException("Authorization required");
         }
         String courseId  = courseUserMaessage.getCourseId();
+        if(courseId == null) {
+            return null;
+        }
         Key key = Key.create(CourseUserMap.class,courseId);
         CourseUserMap courseUserMap = (CourseUserMap) ofy().load().key(key).now();
+
 
         return courseUserMap;
 
     }
+
+
+
+    @ApiMethod(name = "getCourseUsers", path = "getCourseUsers", httpMethod = ApiMethod.HttpMethod.POST)
+    public List<User> getCourseUsers(CourseUserMaessage courseUserMaessage) throws UnauthorizedException {
+
+        if (courseUserMaessage == null) {
+            throw new UnauthorizedException("Authorization required");
+        }
+        String courseId  = courseUserMaessage.getCourseId();
+
+        System.out.println(courseId);
+        Key key = Key.create(CourseUserMap.class,courseId);
+        CourseUserMap courseUserMap = (CourseUserMap) ofy().load().key(key).now();
+        List<User> userList = new ArrayList<User> ();
+        if (courseUserMap != null) {
+            List<String> userIdList = courseUserMap.getUsers();
+            for (String userId : userIdList) {
+                UserMessage userMessage = new UserMessage(userId);
+                System.out.println(userId);
+                User user = getUser(userMessage);
+                userList.add(user);
+            }
+
+        }
+
+        ofy().clear();
+
+        return userList;
+
+    }
+
 
 
     @ApiMethod(name = "updateCourseUserMap", path = "updateCourseUserMap", httpMethod = ApiMethod.HttpMethod.POST)
@@ -124,6 +164,17 @@ public class MyEndpoint {
             courseUserMap = new CourseUserMap(courseId, userList);
             courseUserMap = createCourseUserMap(courseUserMap);
         }
+        else {
+
+            String userId = courseUserMaessage.getUserId();
+            List<String> userList = courseUserMap.getUsers();
+            if( !userList.contains(userId)){
+                userList.add(userId);
+            }
+
+        }
+
+        ofy().save().entity(courseUserMap).now();
 
         return  courseUserMap;
 

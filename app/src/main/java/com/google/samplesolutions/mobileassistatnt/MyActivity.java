@@ -48,6 +48,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
         context = params[0].first;
         String name = params[0].second;
+        System.out.println("name is   " + name);
         Log.d("", "name is " + name);
 
         try {
@@ -74,7 +75,7 @@ public class MyActivity extends Activity {
         a = a+2 ;
         Log.d("", "onCreate() Restoring previous state values is" + a);
 
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
+        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Ramaraju"));
     }
 
 

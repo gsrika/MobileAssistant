@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"9mnLCPwbyZOHH18t8ExzO2gqgTk/6T54LXfeUYqkx6vHw8NPZJCfA_U\"",
+ "etag": "\"9mnLCPwbyZOHH18t8ExzO2gqgTk/F58I_MRj0BrW5PK-S4YzURU89V4\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -120,7 +120,7 @@
    "id": "CourseUserMap",
    "type": "object",
    "properties": {
-    "courseid": {
+    "courseId": {
      "type": "string"
     },
     "users": {
@@ -153,11 +153,23 @@
     "lastName": {
      "type": "string"
     },
-    "picUrl": {
+    "pictureUrl": {
      "type": "string"
     },
-    "pofileUrl": {
+    "publicProfileUrl": {
      "type": "string"
+    }
+   }
+  },
+  "UserCollection": {
+   "id": "UserCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "User"
+     }
     }
    }
   },
@@ -252,6 +264,23 @@
    ],
    "returns": {
     "$ref": "CourseUserMap"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "myApi.getCourseUsers": {
+   "id": "myApi.getCourseUsers",
+   "parameters": {
+    "resource": {
+     "$ref": "CourseUserMaessage"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "returns": {
+    "$ref": "UserCollection"
    },
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"
